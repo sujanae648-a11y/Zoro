@@ -1,0 +1,406 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EGI.co | Aesthetic Store by Muhammad Egi Sujana</title>
+    
+    <!-- Google Fonts: Poppins for a modern, soft look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Phosphor Icons (Modern & clean icons) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        softPink: '#fce4ec',
+                        softPurple: '#f3e5f5',
+                        brandPurple: '#a855f7', // Purple 500
+                        brandDark: '#1e1b4b',
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Utilities */
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Hide scrollbar for horizontal scrolling */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        /* Glassmorphism utility */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .dark .glass {
+            background: rgba(30, 27, 75, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Smooth state transitions */
+        .transition-all-smooth {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-sans transition-all-smooth antialiased pb-24">
+
+    <!-- App Container (Mobile constrained on Desktop) -->
+    <div class="max-w-md mx-auto min-h-screen relative shadow-2xl bg-white dark:bg-slate-900 overflow-hidden">
+        
+        <!-- Header / Top Nav -->
+        <header class="sticky top-0 z-40 glass px-5 py-4 flex justify-between items-center rounded-b-3xl shadow-sm">
+            <div class="flex flex-col">
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+                    EGI.co
+                </h1>
+                <span class="text-[10px] text-slate-400 font-medium">by M. Egi Sujana</span>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <!-- Dark Mode Toggle -->
+                <button id="themeToggle" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:scale-110 transition-transform">
+                    <i class="ph ph-moon text-xl dark:hidden block"></i>
+                    <i class="ph ph-sun text-xl hidden dark:block text-yellow-400"></i>
+                </button>
+                <!-- Cart Icon -->
+                <button class="relative p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:scale-110 transition-transform">
+                    <i class="ph ph-shopping-bag text-xl"></i>
+                    <span id="cartBadge" class="absolute top-0 right-0 bg-pink-500 text-white text-[10px] font-bold h-4 w-4 rounded-full flex items-center justify-center border-2 border-white dark:border-slate-800 transition-all-smooth scale-0">0</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="px-5 pt-6 space-y-8">
+            
+            <!-- Search Bar -->
+            <div class="relative group">
+                <i class="ph ph-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-lg"></i>
+                <input type="text" placeholder="Cari outfit aesthetic hari ini..." class="w-full bg-slate-100 dark:bg-slate-800 rounded-2xl py-3.5 pl-12 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all-smooth dark:text-white placeholder-slate-400">
+                <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-purple-500 text-white p-2 rounded-xl shadow-lg shadow-purple-500/30 hover:bg-purple-600 transition-colors">
+                    <i class="ph ph-faders"></i>
+                </button>
+            </div>
+
+            <!-- Hero Promo Banner (Soft Colors) -->
+            <div class="relative bg-gradient-to-br from-softPurple to-softPink dark:from-brandDark dark:to-slate-800 rounded-3xl p-6 overflow-hidden shadow-sm">
+                <!-- Decorative Circles -->
+                <div class="absolute -top-10 -right-10 w-32 h-32 bg-purple-400/20 rounded-full blur-2xl"></div>
+                <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-pink-400/20 rounded-full blur-2xl"></div>
+                
+                <div class="relative z-10 w-2/3">
+                    <span class="inline-block px-2 py-1 bg-white/50 dark:bg-black/20 rounded-lg text-[10px] font-bold text-purple-600 dark:text-purple-300 backdrop-blur-sm mb-2 uppercase tracking-wider">
+                        New Collection ✨
+                    </span>
+                    <h2 class="text-xl font-bold mb-1 text-slate-800 dark:text-white">Soft Boy / Girl Era</h2>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 mb-4">Diskon up to 50% buat Gen Z yang pengen glow up.</p>
+                    <button class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-xs font-semibold px-5 py-2.5 rounded-full hover:scale-105 transition-transform shadow-lg">
+                        Check Sekarang
+                    </button>
+                </div>
+                <!-- Abstract Image placeholder -->
+                <div class="absolute right-0 bottom-0 w-1/3 h-full flex items-end justify-end p-2 opacity-80">
+                    <i class="ph-fill ph-sparkle text-6xl text-purple-500/30 animate-pulse"></i>
+                </div>
+            </div>
+
+            <!-- Swipeable Categories -->
+            <div>
+                <div class="flex justify-between items-end mb-4">
+                    <h3 class="text-lg font-semibold">Kategori Hits 🔥</h3>
+                    <a href="#" class="text-xs text-purple-500 font-medium hover:underline">Lihat Semua</a>
+                </div>
+                <div class="flex gap-3 overflow-x-auto no-scrollbar pb-2 -mx-5 px-5">
+                    <button class="shrink-0 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-5 py-2.5 rounded-2xl text-sm font-medium shadow-md shadow-slate-900/10 transition-transform active:scale-95">All Items</button>
+                    <button class="shrink-0 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 px-5 py-2.5 rounded-2xl text-sm font-medium hover:bg-slate-50 transition-colors active:scale-95 text-slate-600 dark:text-slate-200">👕 Streetwear</button>
+                    <button class="shrink-0 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 px-5 py-2.5 rounded-2xl text-sm font-medium hover:bg-slate-50 transition-colors active:scale-95 text-slate-600 dark:text-slate-200">👟 Sneakers</button>
+                    <button class="shrink-0 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 px-5 py-2.5 rounded-2xl text-sm font-medium hover:bg-slate-50 transition-colors active:scale-95 text-slate-600 dark:text-slate-200">🧢 Aksesoris</button>
+                    <button class="shrink-0 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 px-5 py-2.5 rounded-2xl text-sm font-medium hover:bg-slate-50 transition-colors active:scale-95 text-slate-600 dark:text-slate-200">👖 Cargo</button>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div>
+                <h3 class="text-lg font-semibold mb-4">For You Page (FYP) 🛍️</h3>
+                <div class="grid grid-cols-2 gap-4" id="productGrid">
+                    <!-- Products injected via JS -->
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Floating Action Button (AI Assistant) -->
+        <button onclick="toggleAIChat()" class="fixed bottom-24 right-4 z-50 bg-gradient-to-r from-purple-500 to-pink-500 text-white p-3.5 rounded-full shadow-lg shadow-purple-500/40 hover:scale-110 transition-transform animate-bounce-slow flex items-center justify-center">
+            <i class="ph-fill ph-magic-wand text-2xl"></i>
+        </button>
+
+        <!-- AI Chat Modal (Hidden by default) -->
+        <div id="aiChatModal" class="fixed inset-0 z-50 bg-slate-900/50 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300 flex items-end justify-center">
+            <div class="bg-white dark:bg-slate-900 w-full max-w-md h-[70vh] rounded-t-3xl shadow-2xl flex flex-col transform translate-y-full transition-transform duration-300" id="aiChatContent">
+                <div class="p-4 border-b dark:border-slate-800 flex justify-between items-center glass rounded-t-3xl">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center text-white font-bold shadow-inner">
+                            <i class="ph-fill ph-robot text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm">Egi AI Assistant</h4>
+                            <p class="text-[10px] text-green-500 font-medium">✨ Online | Canggih & Fast Respon</p>
+                        </div>
+                    </div>
+                    <button onclick="toggleAIChat()" class="p-2 bg-slate-100 dark:bg-slate-800 rounded-full text-slate-500 hover:text-slate-800 dark:hover:text-white">
+                        <i class="ph ph-x text-lg"></i>
+                    </button>
+                </div>
+                
+                <div class="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50 dark:bg-slate-900/50">
+                    <!-- Chat bubbles -->
+                    <div class="flex gap-2">
+                        <div class="w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center shrink-0">🤖</div>
+                        <div class="bg-white dark:bg-slate-800 p-3 rounded-2xl rounded-tl-sm shadow-sm text-sm border dark:border-slate-700/50">
+                            Halo Bestie! 👋 Aku AI Asisten dari <b>EGI.co</b>.<br>Lagi nyari outfit buat nongkrong, ngampus, atau ngedate nih?
+                        </div>
+                    </div>
+                    <div class="flex gap-2 justify-end">
+                        <div class="bg-purple-500 text-white p-3 rounded-2xl rounded-tr-sm shadow-sm text-sm">
+                            Nyari outfit skena buat weekend ini!
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <div class="w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center shrink-0">🤖</div>
+                        <div class="bg-white dark:bg-slate-800 p-3 rounded-2xl rounded-tl-sm shadow-sm text-sm border dark:border-slate-700/50">
+                            Siappp! Gaya Skena / Streetwear ya. Aku saranin pakai <b>Oversized Vintage Tee</b> dipaduin sama <b>Cargo Pants</b>. Bikin kamu auto keren max! ✨
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="p-4 bg-white dark:bg-slate-900 border-t dark:border-slate-800">
+                    <div class="flex gap-2 relative">
+                        <input type="text" placeholder="Tanya Egi AI disini..." class="w-full bg-slate-100 dark:bg-slate-800 rounded-full py-3 pl-4 pr-12 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        <button class="absolute right-1 top-1/2 -translate-y-1/2 p-2 bg-purple-500 text-white rounded-full hover:bg-purple-600 transition-colors">
+                            <i class="ph-fill ph-paper-plane-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation (App Style) -->
+        <nav class="fixed bottom-0 w-full max-w-md glass border-t border-slate-200 dark:border-slate-800 pb-safe z-40 rounded-t-3xl">
+            <div class="flex justify-around items-center py-4 px-2">
+                <a href="#" class="flex flex-col items-center gap-1 text-purple-600 dark:text-purple-400 group">
+                    <div class="relative">
+                        <i class="ph-fill ph-house text-2xl transition-transform group-active:scale-90"></i>
+                        <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-purple-600 rounded-full"></div>
+                    </div>
+                    <span class="text-[9px] font-medium mt-1">Home</span>
+                </a>
+                <a href="#" class="flex flex-col items-center gap-1 text-slate-400 hover:text-purple-500 dark:hover:text-purple-400 transition-colors group">
+                    <i class="ph ph-compass text-2xl transition-transform group-active:scale-90"></i>
+                    <span class="text-[9px] font-medium mt-1">Discover</span>
+                </a>
+                <a href="#" class="flex flex-col items-center gap-1 text-slate-400 hover:text-purple-500 dark:hover:text-purple-400 transition-colors group">
+                    <i class="ph ph-heart text-2xl transition-transform group-active:scale-90"></i>
+                    <span class="text-[9px] font-medium mt-1">Wishlist</span>
+                </a>
+                <a href="#" class="flex flex-col items-center gap-1 text-slate-400 hover:text-purple-500 dark:hover:text-purple-400 transition-colors group">
+                    <i class="ph ph-user text-2xl transition-transform group-active:scale-90"></i>
+                    <span class="text-[9px] font-medium mt-1">Profile</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Notification Toast -->
+        <div id="toast" class="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white px-6 py-3 rounded-full shadow-xl flex items-center gap-2 transform -translate-y-20 opacity-0 transition-all duration-300 pointer-events-none text-sm font-medium">
+            <i class="ph-fill ph-check-circle text-green-400 text-lg"></i>
+            <span id="toastMsg">Ditambahkan ke keranjang!</span>
+        </div>
+
+    </div>
+
+    <!-- Application Logic -->
+    <script>
+        // --- 1. Product Data (Simulated Database) ---
+        const products = [
+            {
+                id: 1,
+                name: "Oversized Vintage Tee",
+                price: 155000,
+                image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                badge: "Trending 🔥",
+                badgeColor: "bg-orange-500"
+            },
+            {
+                id: 2,
+                name: "Aesthetic Cargo Pants",
+                price: 289000,
+                image: "https://images.unsplash.com/photo-1624378439575-d1ead6bb17f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                badge: "Must Have",
+                badgeColor: "bg-slate-800"
+            },
+            {
+                id: 3,
+                name: "Soft Knit Cardigan",
+                price: 210000,
+                image: "https://images.unsplash.com/photo-1434389670869-c410632ffc71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                badge: "New ✨",
+                badgeColor: "bg-pink-500"
+            },
+            {
+                id: 4,
+                name: "Chunky Sneakers",
+                price: 450000,
+                image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                badge: "",
+                badgeColor: ""
+            }
+        ];
+
+        // Format currency helper
+        const formatRupiah = (number) => {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(number);
+        };
+
+        // --- 2. Render Products ---
+        const productGrid = document.getElementById('productGrid');
+        
+        function renderProducts() {
+            productGrid.innerHTML = products.map(product => `
+                <div class="bg-white dark:bg-slate-800 rounded-3xl p-3 shadow-sm border border-slate-100 dark:border-slate-700/50 group relative hover:-translate-y-1 transition-transform duration-300">
+                    <!-- Wishlist button -->
+                    <button class="absolute top-5 right-5 z-10 w-7 h-7 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm rounded-full flex items-center justify-center text-slate-400 hover:text-pink-500 hover:bg-white transition-all shadow-sm">
+                        <i class="ph-fill ph-heart text-sm"></i>
+                    </button>
+                    
+                    <!-- Image -->
+                    <div class="relative w-full aspect-square rounded-2xl overflow-hidden mb-3 bg-slate-100 dark:bg-slate-900">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" loading="lazy">
+                        ${product.badge ? `
+                            <div class="absolute top-2 left-2 ${product.badgeColor} text-white text-[9px] font-bold px-2 py-1 rounded-full shadow-sm">
+                                ${product.badge}
+                            </div>
+                        ` : ''}
+                    </div>
+                    
+                    <!-- Details -->
+                    <div>
+                        <h4 class="text-sm font-medium text-slate-800 dark:text-slate-200 line-clamp-1 mb-1">${product.name}</h4>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-sm font-bold text-purple-600 dark:text-purple-400">${formatRupiah(product.price)}</span>
+                            <button onclick="addToCart()" class="w-8 h-8 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-full flex items-center justify-center hover:scale-110 transition-transform active:scale-95">
+                                <i class="ph ph-plus font-bold"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // --- 3. Shopping Cart Logic ---
+        let cartCount = 0;
+        const badge = document.getElementById('cartBadge');
+        const toast = document.getElementById('toast');
+
+        function addToCart() {
+            cartCount++;
+            badge.textContent = cartCount;
+            // Pop animation for badge
+            badge.classList.remove('scale-0');
+            badge.classList.add('scale-100');
+            badge.classList.add('animate-bounce');
+            setTimeout(() => badge.classList.remove('animate-bounce'), 1000);
+
+            // Show Toast Notification
+            toast.classList.remove('-translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            
+            // Haptic feedback for mobile devices
+            if (navigator.vibrate) navigator.vibrate(50);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('-translate-y-20', 'opacity-0');
+            }, 2500);
+        }
+
+        // --- 4. Dark Mode Logic ---
+        const themeToggleBtn = document.getElementById('themeToggle');
+        
+        // Cek preferensi user (Local Storage atau OS setting)
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        });
+
+        // --- 5. AI Chat Modal Logic ---
+        const aiModal = document.getElementById('aiChatModal');
+        const aiContent = document.getElementById('aiChatContent');
+        let isChatOpen = false;
+
+        function toggleAIChat() {
+            isChatOpen = !isChatOpen;
+            if (isChatOpen) {
+                aiModal.classList.remove('hidden');
+                // Slight delay to allow display:block to apply before animating opacity
+                setTimeout(() => {
+                    aiModal.classList.remove('opacity-0');
+                    aiContent.classList.remove('translate-y-full');
+                }, 10);
+            } else {
+                aiModal.classList.add('opacity-0');
+                aiContent.classList.add('translate-y-full');
+                // Wait for animation to finish before hiding
+                setTimeout(() => {
+                    aiModal.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        // Initialize App
+        renderProducts();
+
+    </script>
+</body>
+</html>
+
+```
